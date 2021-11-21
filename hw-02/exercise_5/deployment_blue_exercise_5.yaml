@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment-blue
+  labels:
+    app: nginx-deployment-blue
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-server
+      version: v1.0
+  template:
+    metadata:
+      labels:
+        app: nginx-server
+        version: v1.0
+    spec:
+      containers:
+        - name: nginx-cont
+          image: nginx:1.19.4
+          ports:
+            - containerPort: 80

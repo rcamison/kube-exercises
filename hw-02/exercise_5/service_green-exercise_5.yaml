@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service 
+metadata:
+  name: nginx-servicegreen-exercise5
+  labels:
+    app: nginx-servicegreen-exercise5 
+spec:
+  selector:
+    app: nginx-server
+    version: v1.0
+  ports:
+    - port: 8080 
+      targetPort: 80      
