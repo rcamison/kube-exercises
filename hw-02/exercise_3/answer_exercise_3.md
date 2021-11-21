@@ -4,7 +4,10 @@ Crear un replicaset para el ejercicio:
 kubectl apply -f pod-exercise03.yaml  
 
 ### Exponiendo el servicio hacia el exterior (crea service1.yaml)
-Hay que utilizar un servicio de tipo LoadBalacer. Necestiamos un DNS pero esto no lo podemos probar en local con minikube.       
+Hay que utilizar un servicio de tipo LoadBalacer. Necestiamos un ip publica para poderlo ver desde el exterior.    
+Como no tengo un proveedor de servicio cloud para poder alojarlo y obtener la ip publica voy a simular el acceso con:    
+minikube service nginx-exercise3-service1
+
 Crear el service:    
 kubectl apply -f service1.yaml 
 
