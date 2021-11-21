@@ -3,7 +3,7 @@ Ejecutar los siguientes comandos:
 - Crear el deployment:               
 kubectl apply -f deployment_01_exercise_4.yaml
 
-Comprobar los datos. Si no se especifica StrategyType por defecto es RollingUpdate          
+- Comprobar los datos. Si no se especifica StrategyType por defecto es RollingUpdate          
 kubectl get deployments          
 kubectl get pods                
 kubectl describe deployment nginx-deployment-exercise04             
