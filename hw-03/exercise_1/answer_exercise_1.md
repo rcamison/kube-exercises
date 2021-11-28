@@ -14,7 +14,7 @@ a. A continuación, tras haber expuesto el servicio en el puerto 80, se deberá 
 	http://<student_name>.student.lasalle.com
 
 
-# SOLUCION:    
+### SOLUCION:    
 - Crear un deployment (ver archivo Deployment.yaml)  
 kubectl apply -f Deployment.yaml    
     
@@ -46,7 +46,7 @@ minikube ip
 • Crear un certificado mediante la herramienta OpenSSL u otra similar   
 • Crear un secret que contenga el certificado    
 
-# SOLUCION:      
+### SOLUCION:      
 - Crear un certificado con OpenSSL    
 openssl req -x509 -newkey rsa:4096 -keyout ingresskey.pem -out ingresscert.pem -nodes -sha256 -days 365 -subj "/C=ES/ST=Barcelona/L=Barcelona/O=raul.student.lasalle.com/CN=La Salle"     
     
