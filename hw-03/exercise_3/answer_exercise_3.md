@@ -1,6 +1,6 @@
-## 3. [Horizontal Pod Autoscaler] Crea un objeto de kubernetes HPA, que escale a partir de las mÈtricas CPU o memoria (a vuestra elecciÛn). Establece el umbral al 50% de CPU/memoria utilizada, cuando pase el umbral, autom·ticamente se deber· escalar al doble de replicas.
+## 3. [Horizontal Pod Autoscaler] Crea un objeto de kubernetes HPA, que escale a partir de las m√©tricas CPU o memoria (a vuestra elecci√≥n). Establece el umbral al 50% de CPU/memoria utilizada, cuando pase el umbral, autom√°ticamente se deber√° escalar al doble de replicas.
 
-#SOLUCION:    
+### SOLUCION:    
 - Crear un deployment y un service de nginx (ver archivo Deployment.yaml)  
 kubectl apply -f Deployment.yaml    
        
@@ -14,17 +14,17 @@ minikube addons enable metrics-server
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_3/images/metrics.png)
 
      
-- Ejecutar el comando (**nota: he tenido que modificar lo que ponia en el enunciado y aÒadir un . antes de /bin/sh para que no me diera error (no encontraba sh)    
+- Ejecutar el comando (**nota: he tenido que modificar lo que ponia en el enunciado y a√±adir un . antes de /bin/sh para que no me diera error (no encontraba sh))    
 kubectl run -i --tty load-generator --rm --image=busybox --restart=Never -- ./bin/sh -c "while sleep 0.01; do wget -q -O- http://nginx; done"  
 
    
 - Estado antes de comenzar 
-![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_3/images/inicio.png)
+![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_3/images/Inicio.png)
 
    
 - Estado en el escalado 
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_3/images/escalado.png)
 
    
-- Estado al para el busybox. El pod load-generator se borra     
+- Estado al parar el busybox. El pod load-generator se borra     
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_3/images/final.png)
