@@ -1,8 +1,8 @@
 ## 1.- [StatefulSet] Crear un StatefulSet con 3 instancias de MongoDB (ejemplo visto en clase). Se pide:       
-• Habilitar el clúster de MongoDB      
-• Realizar una operación en una de las instancias a nivel de configuración y verificar que el cambio se ha aplicado al resto de instancias      
+â€¢ Habilitar el clÃºster de MongoDB      
+â€¢ Realizar una operaciÃ³n en una de las instancias a nivel de configuraciÃ³n y verificar que el cambio se ha aplicado al resto de instancias      
 
-#SOLUCION:    
+### SOLUCION:    
 - Crear un service y un statefulset (ver archivo Statefulset.yaml)  
 kubectl apply -f Statefulset.yaml    
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_2/images/statefulset.png)
@@ -19,7 +19,7 @@ rs.initiate( { _id: "MainRepSet", version: 1, members: [ { _id: 0, host: "mongod
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_2/images/shell01.png)
 
     
-Los valores para el comoando anterior se han obtenido mediante    
+Los valores para el comando anterior se han obtenido mediante el siguiente comando        
 hostname -f   
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_2/images/shell.png)
    
@@ -33,14 +33,15 @@ hostname -f
  
 - Permitir las operaciones en los miembros secundarios        
  rs.secondaryOk()     
-    
-use dbPrueba   
-show collections    
+
+- Ir a la bd creada (dbPrueba) y comprobar si existe la collection (tablaPrueba) mediante los siguientes comandos      
+ use dbPrueba   
+ show collections    
   
 ![alt text](https://github.com/rcamison/kube-exercises/blob/main/hw-03/exercise_2/images/pod2.png)
 
       
-## Diferencias que existiría si el montaje se hubiera realizado con el objeto de ReplicaSet    
+## Diferencias que existirÃ­a si el montaje se hubiera realizado con el objeto de ReplicaSet    
 Las diferencias son:   
  - Con ReplicaSet el volumen que se monta se comparte entre todos los pods, con statefulset cada pod tiene su volumen
  - Con Statefulset los pods se nombran segun el nombre que se le ha dado mas un secuencial (0, 1, 2 ...), en cambio con ReplicaSet se nombran con el nombre asignado mas un hash
